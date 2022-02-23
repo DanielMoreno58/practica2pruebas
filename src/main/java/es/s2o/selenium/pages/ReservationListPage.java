@@ -1,10 +1,13 @@
 package es.s2o.selenium.pages;
 
 import es.s2o.selenium.domain.ReservationDTO;
+import net.bytebuddy.asm.Advice;
 import net.serenitybdd.core.pages.WebElementFacade;
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.openqa.selenium.JavascriptExecutor;
 
 import java.lang.invoke.MethodHandles;
 import java.util.List;
@@ -31,9 +34,11 @@ public class ReservationListPage extends PageObjectBase {
     }
 
     public void addInputOrigin(){
-        String origin = "Madrid";
+        String origin = "MAD";
         reservationPage.btnOrigin.click();
-        reservationPage.inputOrigin.findElement(new By.ByXPath("/html/body/div[4]/div[2]/flights-filter/div/div[2]/div/div/div/div[1]/vy-airport-selector[1]/div/input")).sendKeys(origin);
+        typeInto(reservationPage.originInput, origin);
+        reservationPage.originResult.click();
+        //reservationPage.inputOrigin.findElement(new By.ByXPath("/html/body/div[4]/div[2]/flights-filter/div/div[2]/div/div/div/div[1]/vy-airport-selector[1]/div/input")).sendKeys(origin);
     }
 
     public void addReservations(ReservationDTO reservation) {
