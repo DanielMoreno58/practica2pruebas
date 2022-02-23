@@ -36,10 +36,17 @@ public class ReservationPage extends PageObjectBase {
     @FindBy(className = "origin")
     public WebElementFacade btnOrigin;
 
+    // Origin Input
     public WebElementFacade originInput;
 
     @FindBy(css = "#popup-list > vy-airports-li > li:nth-child(1)")
     public WebElementFacade originResult;
+
+    // Destination Input
+    public WebElementFacade destinationInput;
+
+    @FindBy(css = "#popup-list > vy-airports-li > li.liStation")
+    public WebElementFacade destinationResult;
 
     private WebElementFacade display;
     private WebElementFacade display_txtName;

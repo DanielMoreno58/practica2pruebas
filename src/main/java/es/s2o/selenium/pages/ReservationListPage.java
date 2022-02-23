@@ -38,7 +38,12 @@ public class ReservationListPage extends PageObjectBase {
         reservationPage.btnOrigin.click();
         typeInto(reservationPage.originInput, origin);
         reservationPage.originResult.click();
-        //reservationPage.inputOrigin.findElement(new By.ByXPath("/html/body/div[4]/div[2]/flights-filter/div/div[2]/div/div/div/div[1]/vy-airport-selector[1]/div/input")).sendKeys(origin);
+    }
+
+    public void addInputDestination(){
+        String destination = "BCN";
+        typeInto(reservationPage.destinationInput, destination);
+        reservationPage.destinationResult.click();
     }
 
     public void addReservations(ReservationDTO reservation) {

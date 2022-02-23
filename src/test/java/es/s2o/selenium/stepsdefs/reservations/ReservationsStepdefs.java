@@ -63,6 +63,7 @@ public class ReservationsStepdefs {
         reservations = reservationDTOList;
         reservationListPage.acceptCookies();
         reservationListPage.addInputOrigin();
+        reservationListPage.addInputDestination();
         reservations.forEach(reservation -> reservationListPage.addReservations(reservation));
     }
 
