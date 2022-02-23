@@ -3,6 +3,7 @@ package es.s2o.selenium.pages;
 import es.s2o.selenium.domain.ReservationDTO;
 import net.serenitybdd.core.annotations.findby.FindBy;
 import net.serenitybdd.core.pages.WebElementFacade;
+import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -29,12 +30,19 @@ public class ReservationPage extends PageObjectBase {
     private WebElementFacade txtColor;
     private WebElementFacade btnSave;
 
+    @FindBy(id = "ensCloseBanner")
+    public WebElementFacade btnAcceptCookies;
+
+    @FindBy(className = "origin")
+    public WebElementFacade btnOrigin;
+
+    public WebElementFacade inputOrigin;
+
     private WebElementFacade display;
     private WebElementFacade display_txtName;
 
     public void registerReservation(ReservationDTO reservation) {
         LOGGER.debug("registerReservation starts, reservation: [{}]", reservation);
-
         typeInto(txtName, reservation.getName());
         typeInto(txtPhone, reservation.getPhone());
         typeInto(txtEmail, reservation.getEmail());

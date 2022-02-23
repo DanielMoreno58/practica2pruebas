@@ -54,13 +54,15 @@ public class ReservationsStepdefs {
         LOGGER.debug("iMInTheReservationsPage starts");
         EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
         String baseUrl = variables.getProperty("WEB_ROOT");
-        reservationPage.openAt(baseUrl + HOME);
+        reservationPage.openAt(baseUrl);
     }
 
     @When("^I register the following reservations:$")
     public void iRegisterTheFollowingReservations(List<ReservationDTO> reservationDTOList) throws Throwable {
         LOGGER.debug("iRegisterTheFollowingReservations starts, list size:[{}]", reservationDTOList.size());
         reservations = reservationDTOList;
+        reservationListPage.acceptCookies();
+        reservationListPage.addInputOrigin();
         reservations.forEach(reservation -> reservationListPage.addReservations(reservation));
     }
 
