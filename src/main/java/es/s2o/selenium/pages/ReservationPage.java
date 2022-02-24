@@ -48,6 +48,15 @@ public class ReservationPage extends PageObjectBase {
     @FindBy(css = "#popup-list > vy-airports-li > li.liStation")
     public WebElementFacade destinationResult;
 
+    @FindBy(css = "#searchbar > div > vy-datepicker-popup > vy-datepicker-header > ul > li:nth-child(2) > label")
+    public WebElementFacade oneWayTripSelect;
+
+    @FindBy(className = "ui-datepicker-next")
+    public WebElementFacade moveToNextCalendarMonth;
+
+    @FindBy(xpath = "/html/body/div[4]/div[2]/flights-filter/div/div[2]/div/vy-datepicker-popup/vy-specificdates-datepicker/div/div[4]/table/tbody/tr[1]/td[3]/a")
+    public WebElementFacade selectDate;
+
     private WebElementFacade display;
     private WebElementFacade display_txtName;
 

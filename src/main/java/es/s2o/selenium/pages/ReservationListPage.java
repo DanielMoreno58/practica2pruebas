@@ -46,6 +46,18 @@ public class ReservationListPage extends PageObjectBase {
         reservationPage.destinationResult.click();
     }
 
+    public void addOneWayTripSelect(){
+        reservationPage.oneWayTripSelect.click();
+    }
+
+    public void moveToNextCalendarMonth(){
+        reservationPage.moveToNextCalendarMonth.click();
+    }
+
+    public void selectDate(){
+        reservationPage.selectDate.click();
+    }
+
     public void addReservations(ReservationDTO reservation) {
         btnAdd.click();
         reservationPage.registerReservation(reservation);

@@ -64,6 +64,10 @@ public class ReservationsStepdefs {
         reservationListPage.acceptCookies();
         reservationListPage.addInputOrigin();
         reservationListPage.addInputDestination();
+        reservationListPage.addOneWayTripSelect();
+        reservationListPage.moveToNextCalendarMonth();
+        reservationListPage.moveToNextCalendarMonth();
+        reservationListPage.selectDate();
         reservations.forEach(reservation -> reservationListPage.addReservations(reservation));
     }
 
