@@ -49,16 +49,16 @@ public class ReservationsStepdefs {
         reservationService.clean();
     }
 
-    @Given("^I'm in the reservations page$")
-    public void iMInTheReservationsPage() throws Throwable {
+    @Given("^I'm in the main page$")
+    public void iMInTheMainPage() throws Throwable {
         LOGGER.debug("iMInTheReservationsPage starts");
         EnvironmentVariables variables = SystemEnvironmentVariables.createEnvironmentVariables();
         String baseUrl = variables.getProperty("WEB_ROOT");
         reservationPage.openAt(baseUrl);
     }
 
-    @When("^I register the following reservations:$")
-    public void iRegisterTheFollowingReservations(List<ReservationDTO> reservationDTOList) throws Throwable {
+    @When("^I search for flight:$")
+    public void iSearchForFlight(List<ReservationDTO> reservationDTOList) throws Throwable {
         LOGGER.debug("iRegisterTheFollowingReservations starts, list size:[{}]", reservationDTOList.size());
         reservations = reservationDTOList;
         reservationListPage.acceptCookies();
@@ -71,8 +71,8 @@ public class ReservationsStepdefs {
         reservationListPage.searchFlight();
     }
 
-    @Then("^I get the reservation in the reservations list$")
-    public void iGetTheReservationInTheReservationsList() throws Throwable {
+    @Then("^I get the existing flight page$")
+    public void iGetTheExistingFlightPage() throws Throwable {
         LOGGER.debug("iGetTheReservationInTheReservationsList starts");
     }
 }
