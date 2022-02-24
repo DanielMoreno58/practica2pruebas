@@ -25,9 +25,6 @@ public class ReservationListPage extends PageObjectBase {
 
     private ReservationPage reservationPage;
 
-    private WebElementFacade tblList;
-    private WebElementFacade btnAdd;
-
     public void acceptCookies(){
         LOGGER.debug("Accept coockies");
         reservationPage.btnAcceptCookies.click();
@@ -62,28 +59,4 @@ public class ReservationListPage extends PageObjectBase {
         reservationPage.btnSearch.click();
     }
 
-    public void addReservations(ReservationDTO reservation) {
-        btnAdd.click();
-        reservationPage.registerReservation(reservation);
-    }
-
-    public List<ReservationDTO> getReservationList() {
-        LOGGER.debug("getReservationList starts");
-
-        List<Map<Object, String>> rows = inTable(tblList).getRows();
-        List<ReservationDTO> reservations = rows.stream().map(this::mapReservation).collect(Collectors.toList());
-        return reservations;
-    }
-
-    private ReservationDTO mapReservation(Map<Object, String> rowMap) {
-        ReservationDTO reservation = new ReservationDTO();
-        reservation.setName(rowMap.get("Name"));
-        reservation.setPhone(rowMap.get("Phone"));
-        reservation.setEmail(rowMap.get("Email"));
-        reservation.setDate(rowMap.get("Date"));
-        reservation.setNumber(rowMap.get("Number"));
-        reservation.setTime(rowMap.get("Time"));
-        reservation.setColor(rowMap.get("Table"));
-        return reservation;
-    }
 }

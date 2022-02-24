@@ -69,15 +69,10 @@ public class ReservationsStepdefs {
         reservationListPage.moveToNextCalendarMonth();
         reservationListPage.selectDate();
         reservationListPage.searchFlight();
-        reservations.forEach(reservation -> reservationListPage.addReservations(reservation));
     }
 
     @Then("^I get the reservation in the reservations list$")
     public void iGetTheReservationInTheReservationsList() throws Throwable {
         LOGGER.debug("iGetTheReservationInTheReservationsList starts");
-        List<ReservationDTO> actualReservations = reservationListPage.getReservationList();
-        assertThat(actualReservations).as("Reservation list")
-                .usingRecursiveFieldByFieldElementComparator()
-                .containsExactlyElementsOf(reservations);
     }
 }
