@@ -57,6 +57,9 @@ public class ReservationPage extends PageObjectBase {
     @FindBy(xpath = "/html/body/div[4]/div[2]/flights-filter/div/div[2]/div/vy-datepicker-popup/vy-specificdates-datepicker/div/div[4]/table/tbody/tr[1]/td[3]/a")
     public WebElementFacade selectDate;
 
+    @FindBy(id = "btnSubmitHomeSearcher")
+    public WebElementFacade btnSearch;
+
     private WebElementFacade display;
     private WebElementFacade display_txtName;
 

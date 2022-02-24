@@ -58,6 +58,10 @@ public class ReservationListPage extends PageObjectBase {
         reservationPage.selectDate.click();
     }
 
+    public void searchFlight(){
+        reservationPage.btnSearch.click();
+    }
+
     public void addReservations(ReservationDTO reservation) {
         btnAdd.click();
         reservationPage.registerReservation(reservation);

@@ -68,6 +68,7 @@ public class ReservationsStepdefs {
         reservationListPage.moveToNextCalendarMonth();
         reservationListPage.moveToNextCalendarMonth();
         reservationListPage.selectDate();
+        reservationListPage.searchFlight();
         reservations.forEach(reservation -> reservationListPage.addReservations(reservation));
     }
 
