@@ -44,14 +44,17 @@ public class ReservationListPage extends PageObjectBase {
     }
 
     public void addOneWayTripSelect(){
+        reservationPage.oneWayTripSelect.waitUntilEnabled();
         reservationPage.oneWayTripSelect.click();
     }
 
     public void moveToNextCalendarMonth(){
+        reservationPage.moveToNextCalendarMonth.waitUntilEnabled();
         reservationPage.moveToNextCalendarMonth.click();
     }
 
     public void selectDate(){
+        reservationPage.selectDate.waitUntilEnabled();
         reservationPage.selectDate.click();
     }
 
