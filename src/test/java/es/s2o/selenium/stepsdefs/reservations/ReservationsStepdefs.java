@@ -8,12 +8,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.thucydides.core.util.EnvironmentVariables;
 import net.thucydides.core.util.SystemEnvironmentVariables;
+import org.junit.Assert;
+import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
+import java.time.Duration;
 import java.util.Date;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -45,8 +49,6 @@ public class ReservationsStepdefs {
         reservationPage.addInputOrigin(flightSearchDTO);
         reservationPage.addInputDestination(flightSearchDTO);
         reservationPage.addOneWayTripSelect();
-        reservationPage.moveToNextCalendarMonth();
-        reservationPage.moveToNextCalendarMonth();
         reservationPage.selectDate(flightSearchDTO);
         reservationPage.searchFlight();
     }
@@ -54,5 +56,8 @@ public class ReservationsStepdefs {
     @Then("^I get the existing flight page$")
     public void iGetTheExistingFlightPage() throws Throwable {
         LOGGER.debug("iGetTheExistingFlightPage starts");
+        String currentUrl = reservationPage.getDriver().getCurrentUrl();
+        Assert.assertEquals(currentUrl, "https://tickets.vueling.com/ScheduleSelectNew.aspx");
+        reservationPage.waitOnPage();
     }
 }

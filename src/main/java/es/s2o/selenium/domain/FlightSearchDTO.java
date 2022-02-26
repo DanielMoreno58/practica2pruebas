@@ -10,7 +10,7 @@ public class FlightSearchDTO {
 
     private String origen;
     private String destino;
-    private String fechaIda;
+    private Date fechaIda;
 
     public String getOrigen() {
         return origen;
@@ -28,11 +28,11 @@ public class FlightSearchDTO {
         this.destino = destino;
     }
 
-    public String getFechaIda() {
+    public Date getFechaIda() {
         return fechaIda;
     }
 
-    public void setFechaIda(String fechaIda) {
+    public void setFechaIda(Date fechaIda) {
         this.fechaIda = fechaIda;
     }
 

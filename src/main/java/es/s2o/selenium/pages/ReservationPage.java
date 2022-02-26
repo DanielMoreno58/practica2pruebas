@@ -8,9 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
-import java.text.DateFormat;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.Period;
+import java.time.ZoneId;
 import java.util.Date;
 
 /**
@@ -48,8 +49,6 @@ public class ReservationPage extends PageObjectBase {
     @FindBy(id = "btnSubmitHomeSearcher")
     public WebElementFacade btnSearch;
 
-    private static DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-
     public void acceptCookies(){
         btnAcceptCookies.click();
     }
@@ -76,6 +75,21 @@ public class ReservationPage extends PageObjectBase {
     }
 
     public void selectDate(FlightSearchDTO flightSearchDTO) throws ParseException {
+
+        Date today = new Date();
+        Date outboundDate = flightSearchDTO.getFechaIda();
+
+        if (outboundDate.compareTo(today) > 0){
+            LocalDate ldToday = today.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            LocalDate ldOutboundDate = outboundDate.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+
+            Period differenceMonths = Period.between(ldToday, ldOutboundDate);
+
+            for(int i=0; i<differenceMonths.getMonths()-2; i++){
+                moveToNextCalendarMonth();
+            }
+        }
+
         selectDate.waitUntilEnabled();
         selectDate.click();
     }
