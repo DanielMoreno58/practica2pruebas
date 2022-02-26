@@ -9,3 +9,4 @@ target/
 bin/
 out/
 .DS_Store
+!target/site/serenity/index.html
