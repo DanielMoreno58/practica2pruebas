@@ -1,16 +1,20 @@
 package es.s2o.selenium.pages;
 
-import es.s2o.selenium.domain.ReservationDTO;
+import es.s2o.selenium.domain.FlightSearchDTO;
 import net.serenitybdd.core.annotations.findby.FindBy;
+import net.serenitybdd.core.pages.PageObject;
 import net.serenitybdd.core.pages.WebElementFacade;
-import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 /**
- * Created by sacrists on 26.02.17.
+ * Created by Daniel Alexis on 26.02.22.
  */
 
 public class ReservationPage extends PageObjectBase {
@@ -43,4 +47,40 @@ public class ReservationPage extends PageObjectBase {
 
     @FindBy(id = "btnSubmitHomeSearcher")
     public WebElementFacade btnSearch;
+
+    private static DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+
+    public void acceptCookies(){
+        btnAcceptCookies.click();
+    }
+
+    public void addInputOrigin(FlightSearchDTO flightSearchDTO){
+        btnOrigin.click();
+        typeInto(originInput, flightSearchDTO.getOrigen());
+        originResult.click();
+    }
+
+    public void addInputDestination(FlightSearchDTO flightSearchDTO){
+        typeInto(destinationInput, flightSearchDTO.getDestino());
+        destinationResult.click();
+    }
+
+    public void addOneWayTripSelect(){
+        oneWayTripSelect.waitUntilEnabled();
+        oneWayTripSelect.click();
+    }
+
+    public void moveToNextCalendarMonth(){
+        moveToNextCalendarMonth.waitUntilEnabled();
+        moveToNextCalendarMonth.click();
+    }
+
+    public void selectDate(FlightSearchDTO flightSearchDTO) throws ParseException {
+        selectDate.waitUntilEnabled();
+        selectDate.click();
+    }
+
+    public void searchFlight(){
+        btnSearch.click();
+    }
 }

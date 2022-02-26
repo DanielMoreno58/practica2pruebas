@@ -6,7 +6,8 @@ Feature: Search for Flight
 
   Scenario: Search for Flight
     Given I'm in the main page
-    When I search for flight:
-      | name   | phone | email            | date       | number | time  | color   |
-      | Aslak  | 11    | e@aslakhelle.oy  | 2017-02-17 | 1      | 12:00 | #4e2727 |
+    And I Accept Cookies
+    When I search for flight with the following data:
+      | origen   | destino | fechaIda       |
+      | MAD      | BCN     | 01/07/2022     |
     Then I get the existing flight page
