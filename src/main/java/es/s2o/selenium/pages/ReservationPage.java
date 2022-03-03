@@ -92,7 +92,7 @@ public class ReservationPage extends PageObjectBase {
 
             Period differenceMonths = Period.between(ldToday, ldOutboundDate);
 
-            for(int i=0; i<differenceMonths.getMonths()-2; i++){
+            for(int i=0; i<differenceMonths.getMonths()-1; i++){
                 moveToNextCalendarMonth();
             }
         }

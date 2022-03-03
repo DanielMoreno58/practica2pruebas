@@ -9,5 +9,5 @@ Feature: Search for Flight
     And I Accept Cookies
     When I search for flight with the following data:
       | origen   | destino | fechaIda       |
-      | MAD      | BCN     | 2022-07-01     |
+      | MAD      | BCN     | 2022-06-01     |
     Then I get the existing flight page
