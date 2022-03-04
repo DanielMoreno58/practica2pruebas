@@ -6,29 +6,24 @@ import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.thucydides.core.util.EnvironmentVariables;
-import net.thucydides.core.util.SystemEnvironmentVariables;
+import net.thucydides.core.annotations.Steps;
 import org.junit.Assert;
-import org.openqa.selenium.WebDriver;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.lang.invoke.MethodHandles;
-import java.time.Duration;
-import java.util.Date;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
-
-import static org.assertj.core.api.Assertions.assertThat;
 
 /**
- * Created by sacrists on 26.02.17.
+ * Created by Daniel Alexis on 26.02.22.
  */
 public class ReservationsStepdefs {
     private static final Logger LOGGER = LoggerFactory.getLogger(MethodHandles.lookup().lookupClass());
 
-    private ReservationPage reservationPage;
     private List<FlightSearchDTO> flightSearchList;
+
+    @Steps
+    private ReservationPage reservationPage;
 
     @Given("^I'm in the main page$")
     public void iMInTheMainPage() throws Throwable {

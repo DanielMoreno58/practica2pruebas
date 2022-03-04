@@ -3,13 +3,13 @@
 This project has the purpose to test the next webpage ***https://www.vueling.com/es*** 
 with the following data:
 
-| Field         | Value       |
-|:--------------|:------------|
-| Origin        | Madrid      |
-| Destination   | Barcelona   |
-| Type Flight   | One Way     |
-| Outbound Date | 01/07/2022  |
-| Passenger     | 1           |
+| Field         | Value      |
+|:--------------|:-----------|
+| Origin        | Madrid     |
+| Destination   | Barcelona  |
+| Type Flight   | One Way    |
+| Outbound Date | 01/06/2022 |
+| Passenger     | 1          |
 
 
 ---
